@@ -1,0 +1,27 @@
+CREATE TABLE customer(
+	customer_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	email VARCHAR(150),
+	phone VARCHAR(45)
+);
+
+CREATE TABLE consessions (
+	concession_id SERIAL primary key,
+	product_name VARCHAR(100),
+	item_amount NUMERIC(10,2)
+);
+
+CREATE TABLE movies(
+	movie_id SERIAL PRIMARY KEY,
+	title VARCHAR(100),
+	duration TIME,
+	genre VARCHAR(150)
+);
+
+CREATE TABLE tickets(
+	ticket_id SERIAL PRIMARY KEY,
+	customer_id INTEGER not NULL,
+	price numeric(10,2),
+	FOREIGN KEY(customer_id) REFERENCES customer(customer_id)
+);	
